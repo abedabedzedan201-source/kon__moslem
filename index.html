@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منصة كن مسلماً</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 20px;
+}
+
+/* الخلفية */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: moveBg 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes moveBg {
+    from { transform: translate(0,0); }
+    to { transform: translate(-200px, -200px); }
+}
+
+/* المحتوى */
+.container {
+    text-align: center;
+    margin-top: 60px;
+    animation: fadeIn 2s ease;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* الأزرار */
+.buttons {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+/* زر */
+.btn {
+    padding: 14px 22px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+/* طالب */
+.student {
+    background: linear-gradient(45deg, #00c9ff, #92fe9d);
+    color: black;
+}
+
+/* محفظ */
+.teacher {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    color: black;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+}
+
+/* أيقونات */
+.social {
+    display: flex;
+    gap: 12px;
+}
+
+.social a {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.whatsapp { background: #25D366; }
+.telegram { background: #0088cc; }
+.email { background: #ff4d4d; }
+
+.social a:hover {
+    transform: translateY(-6px) scale(1.1);
+}
+
+/* أنيميشن */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* موبايل */
+@media (max-width: 600px) {
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🌙 أهلاً بكم في منصة كن مسلماً</h1>
+    <p>منصة متكاملة لتحفيظ القرآن الكريم وتعليم العلوم الشرعية بأسلوب عصري</p>
+</div>
+
+<div class="buttons">
+
+    <!-- أنا طالب -->
+    <button class="btn student" onclick="window.location.href='student.html'">
+        👨‍🎓 أنا طالب
+    </button>
+
+    <!-- أنا محفظ -->
+    <button class="btn teacher" onclick="window.location.href='teacher.html'">
+         أنا محفظ
+    </button>
+
+    <!-- التواصل -->
+    <div class="social">
+
+        <a href="https://wa.me/201126244516" target="_blank" class="whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <a href="https://t.me/+201126244516" target="_blank" class="telegram">
+            <i class="fab fa-telegram"></i>
+        </a>
+
+        <a href="mailto:konmoslem@gmail.com" class="email">
+            <i class="fas fa-envelope"></i>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

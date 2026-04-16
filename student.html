@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>انضم كطالب</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    font-family:'Cairo', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+/* زر */
+.btn{
+    padding:15px 25px;
+    border:none;
+    border-radius:30px;
+    background:#25D366;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+/* Popup */
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+/* المحتوى */
+.popup-content{
+    width:90%;
+    max-width:500px;
+    text-align:center;
+}
+
+/* الفيديو */
+video{
+    width:100%;
+    border-radius:15px;
+}
+
+/* إغلاق */
+.close{
+    background:red;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    margin-bottom:10px;
+}
+
+/* زر بعد الفيديو */
+.actions{
+    display:none;
+    margin-top:20px;
+}
+
+.actions a{
+    display:block;
+    margin:10px auto;
+    padding:12px;
+    border-radius:25px;
+    text-decoration:none;
+    color:white;
+    width:80%;
+}
+
+.whatsapp{ background:#25D366; }
+
+</style>
+</head>
+
+<body>
+
+<h2>👨‍🎓 انضم كطالب</h2>
+<p>اضغط لمعرفة كيفية البدء في الحفظ معنا</p>
+
+<button class="btn" onclick="openPopup()">❓ ماذا أفعل؟</button>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+
+<div class="popup-content">
+
+<div class="close" onclick="closePopup()">✖</div>
+
+<video id="video" controls>
+    <source src="student.mp4" type="video/mp4">
+</video>
+
+<!-- زر الانضمام -->
+<div class="actions" id="actions">
+
+<a href="https://wa.me/201126244516?text=أريد التسجيل كطالب في منصة كن مسلماً" target="_blank" class="whatsapp">
+📲 انضم الآن عبر واتساب
+</a>
+
+</div>
+
+</div>
+</div>
+
+<script>
+function openPopup(){
+    popup.style.display="flex";
+    video.play();
+}
+
+function closePopup(){
+    popup.style.display="none";
+    video.pause();
+    video.currentTime=0;
+    actions.style.display="none";
+}
+
+// بعد انتهاء الفيديو
+video.addEventListener("ended", function(){
+    actions.style.display="block";
+});
+</script>
+
+</body>
+</html>

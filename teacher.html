@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>انضم كشيخ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #203a43, #2c5364);
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+/* زر */
+.btn{
+    padding:15px 25px;
+    border:none;
+    border-radius:30px;
+    background:#0088cc;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+/* البوب أب */
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+/* المحتوى */
+.popup-content{
+    position:relative;
+    width:90%;
+    max-width:500px;
+    text-align:center;
+}
+
+/* الفيديو */
+video{
+    width:100%;
+    border-radius:15px;
+}
+
+/* زر الإغلاق */
+.close{
+    position:absolute;
+    top:-10px;
+    left:-10px;
+    background:red;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+}
+
+/* الأزرار بعد الفيديو */
+.actions{
+    display:none;
+    margin-top:20px;
+}
+
+.actions a{
+    display:block;
+    margin:10px auto;
+    padding:12px;
+    border-radius:25px;
+    text-decoration:none;
+    color:white;
+    font-size:16px;
+    width:80%;
+}
+
+/* زر ايميل */
+.email{
+    background:#ff4d4d;
+}
+
+/* زر واتساب */
+.whatsapp{
+    background:#25D366;
+}
+</style>
+</head>
+
+<body>
+
+<h2>🧕 انضم كشيخ</h2>
+<p>اضغط لمعرفة ماذا تفعل للانضمام</p>
+
+<button class="btn" onclick="openPopup()">❓ ماذا أفعل؟</button>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+
+    <div class="popup-content">
+        
+        <div class="close" onclick="closePopup()">✖</div>
+
+        <video id="video" controls>
+            <source src="teacher.mp4" type="video/mp4">
+        </video>
+
+        <!-- الأزرار -->
+        <div class="actions" id="actions">
+            
+            <a href="mailto:konmoslem@gmail.com?subject=طلب الانضمام كمحفظ&body= 
+             السلام عليكم أريد التقديم كمحفظ 
+             الاسم
+              الرقم القومي 
+              السن 
+              رقم الهاتف" 
+              class="email">
+                📧 تقديم طلب
+            </a>
+
+            <a href="https://wa.me/201070142427?text=أريد الاستفسار عن الانضمام كمحفظ" target="_blank" class="whatsapp">
+                📱 استفسارات واتساب
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function openPopup(){
+    let popup = document.getElementById("popup");
+    let video = document.getElementById("video");
+
+    popup.style.display = "flex";
+    video.play();
+}
+
+function closePopup(){
+    let popup = document.getElementById("popup");
+    let video = document.getElementById("video");
+
+    popup.style.display = "none";
+    video.pause();
+    video.currentTime = 0;
+
+    document.getElementById("actions").style.display = "none";
+}
+
+// لما الفيديو يخلص
+document.getElementById("video").addEventListener("ended", function(){
+    document.getElementById("actions").style.display = "block";
+});
+</script>
+
+</body>
+</html>
